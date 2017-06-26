@@ -1,7 +1,7 @@
 // var buttons = document.getElementsByClassName('button');
 // for (var i = 0; i < buttons.length; i++) {
 //   buttons[i].addEventListener('click', function() {
-//     document.body.classList.add('-open-cta');  
+//     document.body.classList.add('-open-cta');
 //   });
 // }
 
@@ -12,6 +12,15 @@
 // document.body.addEventListener('keyup', function() {
 //   document.body.classList.remove('-open-cta');
 // })
+//
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('.navigation-menu').addClass('shrink');
+  } else {
+    $('.navigation-menu').removeClass('shrink');
+  }
+});
+
 
 initSmoothScrolling();
 
