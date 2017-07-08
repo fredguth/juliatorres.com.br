@@ -1,5 +1,8 @@
 .button
+  margin-top: 2rem
+  margin-bottom: 2rem
   display: inline-block
+  border-radius: 1rem
   box-shadow: 0 4px 16px rgba(#000, 0.2)
   cursor: pointer
   transition: all 0.2s ease
@@ -8,7 +11,7 @@
   text-align: center
   border: none
   outline: none
-  +btn-color
+  +btn-color(#fc0, #677)
   +btn-size
 
   &.-cancel
@@ -21,6 +24,9 @@
     +btn-size-tiny
 
 
+  &:hover
+    background-color: #677
+    color: #fc0
   &:focus
     box-shadow: 0 3px 11px rgba(#000, 0.3)
   &:active

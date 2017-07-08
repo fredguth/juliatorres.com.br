@@ -1,26 +1,38 @@
 .navigation-menu
   +container
-  position: absolute
+  position: fixed
   top: 0
   right: 0
   left: 0
-  color: #fff
+  color: #677
   z-index: 3
   transition: all 0.4s linear
-  height: $space-xxl
-  background-color: transparent
+  height: $space-m
+  background-color: #fafbf5
+  border-bottom: 1px
+  border-style: solid
+  border-color: #cad2d7
   +small-only
-    padding-right: calc(#{$space-xxs} + 6vw)
-    padding-left: calc(#{$space-xxs} + 6vw)
-      
+    padding-right: calc(#{$space-xxs} + 4vw)
+    padding-left: calc(#{$space-xxs} + 4vw)
+  +medium-up
+    height: $space-l
+  +large-up
+    height: $space-xl
+
+  .shrink
+    height: $space-m
+    > a
+      font-size: 1rem
+      &:first-child
+        transform-origin: 0 0
   > a
     +v-align
     display: block
-    color: #fff
-    font-size: $font-size-mili
+    color: #000
+    font-size: 1rem
     line-height: $font-size-base
     float: right
-    
     +medium-up
       font-size: $font-size-centi
 
@@ -28,12 +40,11 @@
       float: left
       margin-left: 0
       margin-right: calc(#{$space-xxs} + 2vw)
-      text-transform: uppercase
-      letter-spacing: 0.1em
-      font-family: $font-family-headings
+      font-weight: 900
+      font-size: 1.5rem
       transition transform 0.4s ease
       transform-origin: 0 50%
-      transform: scale(1.25) translateY(-50%)
+
       +medium-up
         transform: scale(1.5) translateY(-50%)
       +large-up
@@ -42,13 +53,23 @@
     &.link
       cursor: pointer
       letter-spacing: 0.05em
-      font-weight: 400
+      font-size: 1.25rem
+      font-weight: 700
       padding: $space-xs
+      +small-only
+        display: none
       +medium-down
+        font-size: 1rem
         padding: $space-xxs
       &:hover
-        background-color: rgba(#000, 0.1)
+        border-radius: $space-xs
+        color:#fc0
+        background-color: #677
       &:focus
-        background-color: rgba(#000, 0.15)
+        border-radius: $space-xs
+        color:#fc0
+        background-color: #677
       &:active
-        background-color: rgba(#000, 0.2)
+        border-radius: $space-xs
+        color:#677
+        background-color: #fc0
