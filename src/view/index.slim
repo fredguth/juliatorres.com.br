@@ -15,34 +15,31 @@ html
   body
 
     nav.navigation-menu
-      a Dra. Júlia Torres
-      a.link href="#where" Consultórios
-      a.link href="#pricing" Preços & Planos
-      a.link href="#about" Sobre
+      a.logo href="#sobre" Dra<span class="dot"></span> Júlia Torres
+      a.link href="#consultorios" Consultórios
+      a.link href="#planos" Preços & Planos
+      a.link href="#sobre" Sobre
 
-    section#about.section
+    section#sobre.section
+      h1 Sobre
       img src="./images/julia.jpg"/
-      h2 Sobre
-
       p Psiquiatra formada no IPUB/UFRJ, Dra. Júlia Torres atende principalmente crianças, adolescentes e adultos com problemas de ansiedade, depressão e TDAH.
+      a.button href="#consultorios" Agende uma consulta
 
-      a.button href="#where" Agende uma consulta
-
-    section#pricing.section-columned
+    section#planos.section-columned
       .column
-        h2 Preços
+        h1 Preços
         h3 Consultas
         p R$450
         h3 Formas de Pagamento
         p Dinheiro, Cheque ou Depósito.
       .column
-        h2 Planos
-        p
-          b Dra. Júlia não é conveniada a nenhum plano de saúde.
-
+        h1 Planos
+        p Dra. Júlia não é conveniada a nenhum plano de saúde.
         p Se você possui seguro saúde ou a opção de livre escolha em seu plano de saúde, poderá receber reembolso apresentando o recibo que será entregue durante a consulta.
 
-      h2 Consultórios
+    section#consultorios.section-columned
+      h1 Consultórios
       .column
         h3 Liberty Mall
         p Torre B - Sala 807
@@ -58,6 +55,6 @@ html
 
     footer.section-footer
       .column
-        p Júlia Torres c Copyright 2017
+        p Júlia Torres © Copyright 2017
 
     script src="js/scripts.js"

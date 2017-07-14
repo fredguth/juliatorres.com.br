@@ -1,38 +1,41 @@
 p
-  font-size: $font-size-centi
-  line-height: $line-height-deci
-  margin-bottom: $space-s
-
+  font-size: $font-size-deca
+  line-height: $line-height-base
+  margin-bottom: $space-xxs
   +medium-up
-    font-size: $font-size-base
-    line-height: $line-height-base
-    margin-bottom: $space-m
+    margin-bottom: $space-xs
 
 h1, h2, h3, h4
   font-family: $font-family-headings
-  font-weight: 400
-  margin-bottom: $space-s
-  +medium-up
-    margin-bottom: $space-m
+  font-weight: 700
+  margin: 0
+  color: $color-night
 
 h1
   font-size: $font-size-hecto
   line-height: $line-height-deca
+  margin-bottom: $space-s
   +medium-up
     font-size: $font-size-kilo
     line-height: $line-height-kilo
+    margin-bottom: $space-m
 h2
   font-size: $font-size-deca
   line-height: $line-height-base
   +medium-up
     font-size: $font-size-hecto
-    line-height: $line-height-hecto
-h3
-  font-size: $font-size-base
-  line-height: $line-height-base
-  +medium-up
-    font-size: $font-size-deca
     line-height: $line-height-deca
+h3
+  font-size: $font-size-deci
+  line-height: $line-height-deci
+  text-transform: uppercase
+  letter-spacing: 0.05em
+  font-weight: 900
+  margin-bottom: $space-xs
+  +medium-up
+    margin-bottom: $space-s
+    font-size: $font-size-base
+    line-height: $line-height-base
 h4
   font-size: $font-size-deci
   line-height: $line-height-deci

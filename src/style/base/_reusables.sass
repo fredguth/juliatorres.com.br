@@ -1,6 +1,9 @@
-=container($sidespace: calc(#{$space-xs} + 4vw))
+=container($sidespace: calc(#{$space-m} + 8vw))
   padding-left: $sidespace
   padding-right: $sidespace
+  +small-only
+    padding-left: calc(#{$sidespace} / 2)
+    padding-right: calc(#{$sidespace} / 2)
 
 =v-align
   position: relative
@@ -15,35 +18,10 @@
   &:active
     background-color: mix(#000, $bgcolor, 15%)
 
-=btn-size
-  padding-top: $space-xs
-  padding-bottom: $space-xs
-  padding-right: $space-m
-  padding-left: $space-m
-  font-size: $font-size-base
-  line-height: $line-height-deci
-
-=btn-size-small
-  padding-top: $space-xxs
-  padding-bottom: $space-xxs
-  padding-right: $space-s
-  padding-left: $space-s
-  font-size: $font-size-centi
-  line-height: $line-height-centi
-
-=btn-size-tiny
-  padding-top: $space-xxs
-  padding-bottom: $space-xxs
-  padding-right: $space-xs
-  padding-left: $space-xs
-  font-size: $font-size-mili
-  line-height: $line-height-mili
-
-=btn-color($bgcolor: $color-topaz, $txcolor: #fff)
+=btn-color($bgcolor: $color-sun, $txcolor: #fff)
   color: $txcolor
   background-color: $bgcolor
   +click-states($bgcolor)
-
 
 =smart-underline($background: #fff, $selection: $color-selection, $position: 90%)
   color: inherit
@@ -64,5 +42,3 @@
     text-shadow: none
   &:visited
     color: inherit
-
-

@@ -1,12 +1,11 @@
 html
   font-size: 1em
-  background-color: #fafbf5
+  background-color: $color-sand
   font-family: $font-family-body
   font-weight: 400
   height: 100%
   -webkit-font-smoothing: antialiased
   font-smooth: always
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004)
 
 a
   text-decoration: none
@@ -25,3 +24,8 @@ li:before
   content: "g"
   font-family: "bulletsregular"
   color: #fc0
+
+h1:after
+  content: ''
+  @extend .dot
+  margin-left: -0.1em !important

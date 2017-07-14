@@ -1,126 +1,39 @@
-// var buttons = document.getElementsByClassName('button');
-// for (var i = 0; i < buttons.length; i++) {
-//   buttons[i].addEventListener('click', function() {
-//     document.body.classList.add('-open-cta');
-//   });
-// }
+$(document).ready(function () {
+  $(document).on("scroll", onScroll);
 
-// document.getElementById('close-cta').addEventListener('click', function() {
-//   document.body.classList.remove('-open-cta');
-// });
+  //smoothscroll
+  $('a[href^="#"]').on('click', function (e) {
+    e.preventDefault();
+    $(document).off("scroll");
 
-// document.body.addEventListener('keyup', function() {
-//   document.body.classList.remove('-open-cta');
-// })
-//
-$(window).scroll(function() {
-  if ($(document).scrollTop() > 50) {
-    $('.navigation-menu').addClass('shrink');
-  } else {
-    $('.navigation-menu').removeClass('shrink');
-  }
+    $('a').each(function () {
+      $(this).removeClass('-active');
+    })
+    $(this).addClass('-active');
+
+    var target = this.hash,
+      menu = target;
+    $target = $(target);
+    $('html, body').stop().animate({
+      'scrollTop': $target.offset().top+2
+    }, 500, 'swing', function () {
+      window.location.hash = target;
+      $(document).on("scroll", onScroll);
+    });
+  });
 });
 
-
-initSmoothScrolling();
-
-function initSmoothScrolling() {
-
-  var duration = 400;
-
-  var pageUrl = location.hash ?
-    stripHash(location.href) :
-    location.href;
-
-  document.body.addEventListener('click', onClick, false);
-
-  function onClick(e) {
-    if (!isAnchor(e.target))
-      return;
-
-    e.stopPropagation();
-    e.preventDefault();
-
-    jump(e.target.hash, {
-      duration: duration,
-      callback: function() {
-        setFocus(e.target.hash);
-      }
-    });
-  }
-
-  function isAnchor(n) {
-    return n.tagName.toLowerCase() === 'a' &&
-      n.hash.length > 0 &&
-      stripHash(n.href) === pageUrl;
-  }
-
-  function stripHash(url) {
-    return url.slice(0, url.lastIndexOf('#'));
-  }
-
-  // Adapted from:
-  // https://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
-  function setFocus(hash) {
-    var element = document.getElementById(hash.substring(1));
-
-    if (element) {
-      if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-        element.tabIndex = -1;
-      }
-
-      element.focus();
+function onScroll(event){
+  var scrollPos = $(document).scrollTop();
+  $('.navigation-menu a').each(function () {
+    var currLink = $(this);
+    var refElement = $(currLink.attr("href"));
+    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+      $('.navigation-menu a').removeClass("-active");
+      currLink.addClass("-active");
     }
-  }
-
-}
-
-function jump(target, options) {
-  var
-    start = window.pageYOffset,
-    opt = {
-      duration: options.duration,
-      offset: options.offset || 0,
-      callback: options.callback,
-      easing: options.easing || easeInOutQuad
-    },
-    distance = typeof target === 'string' ?
-    opt.offset + document.querySelector(target).getBoundingClientRect().top :
-    target,
-    duration = typeof opt.duration === 'function' ?
-    opt.duration(distance) :
-    opt.duration,
-    timeStart, timeElapsed;
-
-  requestAnimationFrame(function(time) {
-    timeStart = time;
-    loop(time);
+    else{
+      currLink.removeClass("-active");
+    }
   });
-
-  function loop(time) {
-    timeElapsed = time - timeStart;
-
-    window.scrollTo(0, opt.easing(timeElapsed, start, distance, duration));
-
-    if (timeElapsed < duration)
-      requestAnimationFrame(loop)
-    else
-      end();
-  }
-
-  function end() {
-    window.scrollTo(0, start + distance);
-
-    if (typeof opt.callback === 'function')
-      opt.callback();
-  }
-
-  // Robert Penner's easeInOutQuad - http://robertpenner.com/easing/
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2
-    if (t < 1) return c / 2 * t * t + b
-    t--
-    return -c / 2 * (t * (t - 2) - 1) + b
-  }
-
 }

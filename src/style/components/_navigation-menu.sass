@@ -4,19 +4,10 @@
   top: 0
   right: 0
   left: 0
-  color: #677
   z-index: 3
-  transition: all 0.4s linear
-  height: $space-m
-  background-color: #fafbf5
-  border-bottom: 1px
-  border-style: solid
-  border-color: #cad2d7
-  +small-only
-    padding-right: calc(#{$space-xxs} + 4vw)
-    padding-left: calc(#{$space-xxs} + 4vw)
-  +medium-up
-    height: $space-l
+  height: $space-l
+  background-color: $color-night
+  box-shadow: 0 8px 24px rgba(#000, 0.2)
   +large-up
     height: $space-xl
 
@@ -27,49 +18,47 @@
       &:first-child
         transform-origin: 0 0
   > a
-    +v-align
     display: block
-    color: #000
     font-size: 1rem
-    line-height: $font-size-base
     float: right
+    color: #fff
+    line-height: $space-l
     +medium-up
       font-size: $font-size-centi
+    +large-up
+      line-height: $space-xl
 
     &:first-child
+      font-family: $font-family-headings
       float: left
       margin-left: 0
       margin-right: calc(#{$space-xxs} + 2vw)
       font-weight: 900
       font-size: 1.5rem
-      transition transform 0.4s ease
       transform-origin: 0 50%
 
       +medium-up
-        transform: scale(1.5) translateY(-50%)
+        font-size: 1.75rem
       +large-up
-        transform: scale(2) translateY(-50%)
+        font-size: 2rem
 
     &.link
       cursor: pointer
       letter-spacing: 0.05em
       font-size: 1.25rem
       font-weight: 700
-      padding: $space-xs
+      padding: 0 $space-xs
+      transition: all 0.3s ease
       +small-only
         display: none
       +medium-down
         font-size: 1rem
-        padding: $space-xxs
+        padding: 0 $space-xxs
       &:hover
-        border-radius: $space-xs
-        color:#fc0
-        background-color: #677
-      &:focus
-        border-radius: $space-xs
-        color:#fc0
-        background-color: #677
+        background-color: rgba(#000, 0.1)
+      &:focus,
       &:active
-        border-radius: $space-xs
-        color:#677
-        background-color: #fc0
+        background-color: rgba(#000, 0.2)
+      &.-active
+        color: $color-sun
+        box-shadow: 0 -4px $color-sun inset
